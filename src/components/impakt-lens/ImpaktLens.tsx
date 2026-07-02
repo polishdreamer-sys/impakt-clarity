@@ -1085,7 +1085,12 @@ export function ImpaktLens() {
             <span>{L.brand} — {L.footer}</span>
           </div>
           <div className="flex items-center gap-3">
-            <a href="#" className="inline-flex items-center gap-1.5 hover:text-foreground">
+            <a
+              href="https://github.com/polishdreamer-sys/impakt-clarity"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 hover:text-foreground"
+            >
               <Github className="h-3.5 w-3.5" /> Open source
             </a>
             <span aria-hidden>·</span>
