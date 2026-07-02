@@ -49,7 +49,7 @@ export const t = {
     contextFor: "Context",
     suggested: "Suggested terms",
     downloadPdf: "Download PDF Briefing",
-    builtBy: "Built by Impakt.ai",
+    builtBy: "Student project · Inspired by Impakt.ai",
     aiBriefing: "AI Briefing",
     section: "Section",
     sectorNoteTitle: "Sector focus",
