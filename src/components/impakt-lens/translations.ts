@@ -127,7 +127,7 @@ export const t = {
     contextFor: "Kontekst",
     suggested: "Sugerowane pojęcia",
     downloadPdf: "Pobierz Briefing PDF",
-    builtBy: "Zbudowane przez Impakt.ai",
+    builtBy: "Projekt studencki · Inspirowany Impakt.ai",
     aiBriefing: "Briefing AI",
     section: "Sekcja",
     sectorNoteTitle: "Fokus branżowy",
