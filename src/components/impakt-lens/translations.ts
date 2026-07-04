@@ -68,6 +68,12 @@ export const t = {
       "This PDF appears to be a scanned image with no selectable text. Please paste the relevant paragraph manually below.",
     imageNoOcr:
       "Image analysis (OCR) isn't available in this preview — please paste the table content as text below.",
+    fileTooLarge:
+      "This file is larger than the 20 MB limit. Please upload a smaller PDF or paste the relevant section as text below.",
+    unsupportedFile:
+      "Unsupported file type. Please upload a PDF or PNG/JPG image, or paste the text below.",
+    pdfExtractFailed:
+      "We couldn't read this PDF — it may be corrupted or password-protected. Please try another file or paste the text below.",
     uploadedLabel: (name: string) => `Uploaded: ${name}`,
     progressLabel: "Compliance progress",
     completed: "completed",
@@ -146,6 +152,12 @@ export const t = {
       "Ten PDF wygląda na zeskanowany obraz bez warstwy tekstowej. Wklej odpowiedni fragment ręcznie poniżej.",
     imageNoOcr:
       "Analiza obrazu (OCR) nie jest dostępna w tym podglądzie — wklej treść tabeli jako tekst poniżej.",
+    fileTooLarge:
+      "Ten plik przekracza limit 20 MB. Wgraj mniejszy PDF lub wklej odpowiedni fragment jako tekst poniżej.",
+    unsupportedFile:
+      "Nieobsługiwany format pliku. Wgraj PDF lub obraz PNG/JPG, albo wklej tekst poniżej.",
+    pdfExtractFailed:
+      "Nie udało się odczytać tego PDF — może być uszkodzony lub zabezpieczony hasłem. Spróbuj innego pliku lub wklej tekst poniżej.",
     uploadedLabel: (name: string) => `Wgrano: ${name}`,
     progressLabel: "Postęp zgodności",
     completed: "ukończone",

@@ -54,7 +54,7 @@ function renderInline(text: string) {
 function MarkdownBlock({ text }: { text: string }) {
   const lines = text.split("\n");
   return (
-    <div className="space-y-2 text-[15px] leading-relaxed text-muted-foreground">
+    <div className="space-y-2 text-[15px] leading-relaxed text-muted-foreground break-words">
       {lines.map((line, i) => {
         if (!line.trim()) return <div key={i} className="h-1" />;
         // numbered list "1. ..."
@@ -283,8 +283,19 @@ export function ImpaktLens() {
     setPdfNotice(null);
     setPdfTruncated(false);
 
+    const MAX_FILE_BYTES = 20 * 1024 * 1024;
     const isPdf = file.type === "application/pdf" || /\.pdf$/i.test(file.name);
     const isImage = file.type.startsWith("image/") || /\.(png|jpe?g|webp|gif)$/i.test(file.name);
+
+    // Size guard first — a 200 MB PDF would otherwise hang the pdf.js worker.
+    if (file.size > MAX_FILE_BYTES) {
+      setUploadBusy(false);
+      setUploadDone(true);
+      setUploadProgress(100);
+      setPdfNotice(t[lang].fileTooLarge);
+      setTextInput("");
+      return;
+    }
 
     if (isImage) {
       // Honest handling: no OCR in this build.
@@ -300,7 +311,7 @@ export function ImpaktLens() {
       setUploadBusy(false);
       setUploadDone(true);
       setUploadProgress(100);
-      setPdfNotice(t[lang].imageNoOcr);
+      setPdfNotice(t[lang].unsupportedFile);
       return;
     }
 
@@ -309,6 +320,7 @@ export function ImpaktLens() {
       const { extractPdfText } = await import("@/lib/pdf-extract");
       const result = await extractPdfText(file, (pct) => setUploadProgress(pct));
       if (result.text.length < 200) {
+        // Extraction ran but no usable text — treat as scanned/image-only PDF.
         setTextInput("");
         setPdfNotice(t[lang].pdfScannedNoText);
       } else {
@@ -318,7 +330,9 @@ export function ImpaktLens() {
       setUploadProgress(100);
       setUploadDone(true);
     } catch {
-      setPdfNotice(t[lang].pdfScannedNoText);
+      // pdf.js threw — corrupted, encrypted, or not really a PDF.
+      setTextInput("");
+      setPdfNotice(t[lang].pdfExtractFailed);
       setUploadDone(true);
       setUploadProgress(100);
     } finally {
@@ -940,7 +954,7 @@ export function ImpaktLens() {
                         {L.tldrLabel}
                       </div>
                     </header>
-                    <p className="relative text-[15px] leading-relaxed text-foreground">
+                    <p className="relative text-[15px] leading-relaxed text-foreground break-words">
                       {response.tldr}
                     </p>
                   </article>
