@@ -68,6 +68,12 @@ export const t = {
       "This PDF appears to be a scanned image with no selectable text. Please paste the relevant paragraph manually below.",
     imageNoOcr:
       "Image analysis (OCR) isn't available in this preview — please paste the table content as text below.",
+    fileTooLarge:
+      "This file is larger than the 20 MB limit. Please upload a smaller PDF or paste the relevant section as text below.",
+    unsupportedFile:
+      "Unsupported file type. Please upload a PDF or PNG/JPG image, or paste the text below.",
+    pdfExtractFailed:
+      "We couldn't read this PDF — it may be corrupted or password-protected. Please try another file or paste the text below.",
     uploadedLabel: (name: string) => `Uploaded: ${name}`,
     progressLabel: "Compliance progress",
     completed: "completed",
