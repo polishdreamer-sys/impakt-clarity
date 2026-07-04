@@ -152,6 +152,12 @@ export const t = {
       "Ten PDF wygląda na zeskanowany obraz bez warstwy tekstowej. Wklej odpowiedni fragment ręcznie poniżej.",
     imageNoOcr:
       "Analiza obrazu (OCR) nie jest dostępna w tym podglądzie — wklej treść tabeli jako tekst poniżej.",
+    fileTooLarge:
+      "Ten plik przekracza limit 20 MB. Wgraj mniejszy PDF lub wklej odpowiedni fragment jako tekst poniżej.",
+    unsupportedFile:
+      "Nieobsługiwany format pliku. Wgraj PDF lub obraz PNG/JPG, albo wklej tekst poniżej.",
+    pdfExtractFailed:
+      "Nie udało się odczytać tego PDF — może być uszkodzony lub zabezpieczony hasłem. Spróbuj innego pliku lub wklej tekst poniżej.",
     uploadedLabel: (name: string) => `Wgrano: ${name}`,
     progressLabel: "Postęp zgodności",
     completed: "ukończone",
