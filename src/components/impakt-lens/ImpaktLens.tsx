@@ -54,7 +54,7 @@ function renderInline(text: string) {
 function MarkdownBlock({ text }: { text: string }) {
   const lines = text.split("\n");
   return (
-    <div className="space-y-2 text-[15px] leading-relaxed text-muted-foreground">
+    <div className="space-y-2 text-[15px] leading-relaxed text-muted-foreground break-words">
       {lines.map((line, i) => {
         if (!line.trim()) return <div key={i} className="h-1" />;
         // numbered list "1. ..."
