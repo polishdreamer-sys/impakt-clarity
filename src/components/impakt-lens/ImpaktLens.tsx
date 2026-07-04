@@ -954,7 +954,7 @@ export function ImpaktLens() {
                         {L.tldrLabel}
                       </div>
                     </header>
-                    <p className="relative text-[15px] leading-relaxed text-foreground">
+                    <p className="relative text-[15px] leading-relaxed text-foreground break-words">
                       {response.tldr}
                     </p>
                   </article>
